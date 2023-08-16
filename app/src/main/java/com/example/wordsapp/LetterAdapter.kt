@@ -17,12 +17,15 @@ package com.example.wordsapp
 
 import android.content.Intent
 import android.os.Build
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUiSaveStateControl
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -69,7 +72,9 @@ class LetterAdapter :
         // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
         holder.button.setOnClickListener {
             val context = holder.view.context
-            // Create an intent with a destination of DetailActivity
+            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+            holder.view.findNavController().navigate(action)
+                    // Create an intent with a destination of DetailActivity
 //            val intent = Intent(context, DetailActivity::class.java)
 //            // Add the selected letter to the intent as extra data
 //            // The text of Buttons are [CharSequence], a list of characters,

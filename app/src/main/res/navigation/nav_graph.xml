@@ -10,10 +10,15 @@
         android:label="LetterListFragment" >
         <action
             android:id="@+id/action_letterListFragment_to_wordListFragment"
-            app:destination="@id/wordListFragment" />
+            app:destination="@id/wordListFragment"
+            app:popUpTo="@id/letterListFragment" />
     </fragment>
     <fragment
         android:id="@+id/wordListFragment"
         android:name="com.example.wordsapp.WordListFragment"
-        android:label="WordListFragment" />
+        android:label="WordListFragment" >
+        <argument
+            android:name="letter"
+            app:argType="string" />
+    </fragment>
 </navigation>
